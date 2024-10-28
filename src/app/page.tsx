@@ -1,13 +1,13 @@
-import HomePage from "../components/HomePage";
-import Videos from "../components/Videos";
+/* import HomePage from "../components/HomePage.tsx";
+import Videos from "../components/Videos.tsx"; */
+import { BackgroundGradientAnimation } from '../components/ui/background-gradient-animation'
 
 
 export default function MainPage() {
   return (
-    <div>
-      <h1>Main Page</h1>
-      <HomePage /> 
-      <Videos />
-    </div>
+    <>
+      Hola
+      <BackgroundGradientAnimation/>
+    </>
   );
 }
