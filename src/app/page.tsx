@@ -68,9 +68,11 @@ export default function MainPage() {
         
       </BackgroundGradientAnimation>
 
-      <h2 className="max-w-7xl pl-4 mx-auto text-xl md:text-5xl font-bold text-neutral-300 dark:text-neutral-200 font-sans">
-        Conferencias
-      </h2>
+      {/* Conferencias */}
+      <div className="max-w-7xl mx-auto py-12">
+      <h2 className="text-5xl font-bold text-neutral-300 mb-8 text-center">
+          Conferencias
+        </h2>
       {/* Carrusel de tarjetas */}
       <div className="w-full py-20 overflow-x-auto flex space-x-6 px-4">
         {carouselData.map((card, index) => (
@@ -93,127 +95,114 @@ export default function MainPage() {
           </div>
         ))}
       </div>
+      </div>
 
-      {/* Contenedor de Proyectos */}
-      <h2 className="max-w-7xl pl-4 mx-auto text-xl md:text-5xl font-bold text-neutral-300 dark:text-neutral-200 font-sans">
-        Proyectos
-      </h2>
-      <BentoGrid className="max-w-4xl mx-auto py-10">
-        {items.map((item, i) => (
-          <BentoGridItem
-            key={i}
-            title={item.title}
-            description={item.description}
-            header={item.header}
-            icon={item.icon}
-            className={i === 3 || i === 6 ? "md:col-span-2" : ""}
-          />
-        ))}
-      </BentoGrid>
+      {/* Proyectos */}
+      <section className="max-w-7xl mx-auto py-12">
+        <h2 className="text-5xl font-bold text-neutral-300 mb-8 text-center">
+          Proyectos
+        </h2>
+        <BentoGrid className="gap-6">
+          {items.map((item, i) => (
+            <BentoGridItem
+              key={i}
+              title={item.title}
+              description={item.description}
+              header={item.header}
+              icon={item.icon}
+              className={i === 3 || i === 6 ? "md:col-span-2" : ""}
+            />
+          ))}
+        </BentoGrid>
+      </section>
 
-      {/* Contenedor de logos en la parte inferior */}
-      <div className="w-full flex items-center justify-center gap-6 py-10">
+      {/* Logos */}
+      <div className="w-full flex items-center justify-center gap-8 py-12 bg-neutral-50">
         {logoImages.map((logo, index) => (
           <div
             key={index}
+            className="rounded-full bg-white shadow-lg flex items-center justify-center p-4"
             style={{
-              width: 'clamp(3rem, 8vw, 4rem)',
-              height: 'clamp(3rem, 8vw, 4rem)',
+              width: 'clamp(2.5rem, 5vw, 3.5rem)',
+              height: 'clamp(2.5rem, 5vw, 3.5rem)',
             }}
-            className="rounded-full bg-white bg-opacity-80 flex items-center justify-center shadow-lg overflow-hidden"
           >
             <Image
               src={logo}
               width={500}
               height={500}
               alt={`Logo ${index + 1}`}
-              className="object-contain opacity-50"
-              style={{
-                width: 'clamp(1rem, 6vw, 3rem)',
-                height: 'clamp(1rem, 6vw, 3rem)',
-              }}
+              className="object-contain opacity-60"
             />
           </div>
         ))}
       </div>
-      
 
-      <div className="bg-neutral-900 text-white py-16">
-      <h2 className="text-5xl font-extrabold text-center mb-12 text-neutral-300 tracking-tight">
-        Preguntas Frecuentes
-      </h2>
-      <div className="max-w-3xl mx-auto space-y-4 px-6">
-        {questionsAnswers.map((item, index) => (
-          <div
-            key={index}
-            onClick={() => toggleAccordion(index)}
-            className={`transition transform hover:scale-105 p-6 rounded-xl shadow-xl cursor-pointer ${
-              openIndex === index ? 'bg-neutral-800 text-neutral-200' : 'bg-neutral-900'
-            }`}
-            style={{
-              background: openIndex === index ? 'linear-gradient(to bottom right, #555, #333)' : '',
-              transition: 'background-color 0.3s ease, transform 0.3s ease',
-            }}
-          >
-            <h3 className="text-xl font-semibold flex justify-between items-center">
-              {item.question}
-              <span className={`text-neutral-500 transition-transform ${openIndex === index ? 'rotate-45' : 'rotate-0'}`}>
-                {openIndex === index ? '-' : '+'}
-              </span>
-            </h3>
-            {openIndex === index && (
-              <p className="text-neutral-400 mt-4 transition-opacity duration-300 ease-in-out">
-                {item.answer}
-              </p>
-            )}
-          </div>
-        ))}
-      </div>
-    </div>
-
+      {/* Preguntas Frecuentes */}
+      <section className="bg-neutral-900 text-white py-16">
+        <h2 className="text-5xl font-extrabold text-center mb-12 text-neutral-300 tracking-tight">
+          Preguntas Frecuentes
+        </h2>
+        <div className="max-w-3xl mx-auto space-y-4 px-6">
+          {questionsAnswers.map((item, index) => (
+            <div
+              key={index}
+              onClick={() => toggleAccordion(index)}
+              className={`p-6 rounded-xl shadow-xl cursor-pointer transition-all duration-300 transform hover:scale-105 ${
+                openIndex === index ? 'bg-neutral-800 text-neutral-200' : 'bg-neutral-900'
+              }`}
+              style={{
+                background: openIndex === index ? 'linear-gradient(to bottom right, #555, #333)' : '',
+                transition: 'background-color 0.3s ease, transform 0.3s ease',
+              }}
+            >
+              <h3 className="text-xl font-semibold flex justify-between items-center">
+                {item.question}
+                <span className={`text-neutral-500 transition-transform ${openIndex === index ? 'rotate-45' : 'rotate-0'}`}>
+                  {openIndex === index ? '-' : '+'}
+                </span>
+              </h3>
+              {openIndex === index && (
+                <p className="text-neutral-400 mt-4 transition-opacity duration-300 ease-in-out">
+                  {item.answer}
+                </p>
+              )}
+            </div>
+          ))}
+        </div>
+      </section>
 
       {/* Footer */}
-      <footer className="bg-purple-1000 text-white py-8">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-wrap justify-between">
-            <div className="w-full md:w-1/3 mb-4">
-              <h2 className="text-lg font-semibold mb-2">Sobre Nosotros</h2>
-              <p className="text-gray-400">
-                Somos una empresa comprometida con el desarrollo de soluciones innovadoras para un futuro mejor.
-              </p>
-            </div>
-            <div className="w-full md:w-1/3 mb-4">
-              <h2 className="text-lg font-semibold mb-2">Enlaces Rápidos</h2>
-              <ul className="text-gray-400">
-                <li className="mb-1">
-                  <a href="#" className="hover:underline">Inicio</a>
-                </li>
-                <li className="mb-1">
-                  <a href="#" className="hover:underline">Servicios</a>
-                </li>
-                <li className="mb-1">
-                  <a href="#" className="hover:underline">Contacto</a>
-                </li>
-              </ul>
-            </div>
-            <div className="w-full md:w-1/3 mb-4">
-              <h2 className="text-lg font-semibold mb-2">Síguenos</h2>
-              <div className="flex space-x-4 text-gray-400">
-                <a href="#" className="hover:text-gray-100">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.56v14.88c0 .91-.37 1.75-1.02 2.38-.66.65-1.54 1.02-2.48 1.02H3.5c-.94 0-1.83-.37-2.48-1.02-.65-.63-1.02-1.47-1.02-2.38V4.56c0-.91.37-1.75 1.02-2.38.66-.65 1.54-1.02 2.48-1.02h17c.94 0 1.83.37 2.48 1.02.65.63 1.02 1.47 1.02 2.38z"/></svg>
-                </a>
-                <a href="#" className="hover:text-gray-100">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.56v14.88c0 .91-.37 1.75-1.02 2.38-.66.65-1.54 1.02-2.48 1.02H3.5c-.94 0-1.83-.37-2.48-1.02-.65-.63-1.02-1.47-1.02-2.38V4.56c0-.91.37-1.75 1.02-2.38.66-.65 1.54-1.02 2.48-1.02h17c.94 0 1.83.37 2.48 1.02.65.63 1.02 1.47 1.02 2.38z"/></svg>
-                </a>
-                <a href="#" className="hover:text-gray-100">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.56v14.88c0 .91-.37 1.75-1.02 2.38-.66.65-1.54 1.02-2.48 1.02H3.5c-.94 0-1.83-.37-2.48-1.02-.65-.63-1.02-1.47-1.02-2.38V4.56c0-.91.37-1.75 1.02-2.38.66-.65 1.54-1.02 2.48-1.02h17c.94 0 1.83.37 2.48 1.02.65.63 1.02 1.47 1.02 2.38z"/></svg>
-                </a>
-              </div>
+      <footer className="bg-neutral-800 text-white py-12">
+        <div className="container mx-auto px-6 flex flex-col md:flex-row md:justify-between space-y-6 md:space-y-0">
+          <div className="md:w-1/3">
+            <h2 className="text-lg font-semibold mb-3">Sobre Nosotros</h2>
+            <p className="text-neutral-400">
+              Somos una empresa comprometida con el desarrollo de soluciones innovadoras para un futuro mejor.
+            </p>
+          </div>
+          <div className="md:w-1/3">
+            <h2 className="text-lg font-semibold mb-3">Enlaces Rápidos</h2>
+            <ul className="text-neutral-400 space-y-1">
+              <li><a href="#" className="hover:underline">Inicio</a></li>
+              <li><a href="#" className="hover:underline">Servicios</a></li>
+              <li><a href="#" className="hover:underline">Contacto</a></li>
+            </ul>
+          </div>
+          <div className="md:w-1/3">
+            <h2 className="text-lg font-semibold mb-3">Síguenos</h2>
+            <div className="flex space-x-4 text-neutral-400">
+              <a href="#" className="hover:text-neutral-100">
+                <IconBoxAlignTopLeft className="h-6 w-6" />
+              </a>
+              <a href="#" className="hover:text-neutral-100">
+                <IconArrowWaveRightUp className="h-6 w-6" />
+              </a>
             </div>
           </div>
-          <div className="mt-8 border-t border-gray-700 pt-4 text-center">
-            <p className="text-gray-400">© 2023 STDC. Todos los derechos reservados.</p>
-          </div>
+        </div>
+        <div className="mt-8 border-t border-neutral-600 pt-4 text-center">
+          <p className="text-neutral-400">© 2023 STDC. Todos los derechos reservados.</p>
         </div>
       </footer>
     </>
