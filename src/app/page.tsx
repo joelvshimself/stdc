@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { BackgroundGradientAnimation } from '../components/ui/background-gradient-animation';
 import Image from 'next/image';
+import { BentoGrid, BentoGridItem } from "../components/ui/bento-grid";
+import { IconArrowWaveRightUp, IconBoxAlignRightFilled, IconBoxAlignTopLeft, IconClipboardCopy, IconFileBroken, IconSignature, IconTableColumn } from "@tabler/icons-react";
 
 export default function MainPage() {
   // Array con las rutas de los logos
@@ -15,6 +17,17 @@ export default function MainPage() {
   // Datos dummy para el carrusel
   const carouselData = [
     {
+      category: "Artificial Intelligence",
+      title: "You can do more with AI.",
+      src: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?q=80&w=3556&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      description: "The first rule of Apple club is that you boast about Apple club.",
+    },
+    {
+      category: "Productivity",
+      title: "Enhance your productivity.",
+      src: "https://images.unsplash.com/photo-1531554694128-c4c6665f59c2?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      description: "Quickly jot down a grocery list, and take amazing class notes.",
+    },{
       category: "Artificial Intelligence",
       title: "You can do more with AI.",
       src: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?q=80&w=3556&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -41,35 +54,8 @@ export default function MainPage() {
             STDC
           </p>
         </div>
-
-        {/* Contenedor de logos en la parte inferior */}
-        <div className="absolute bottom-10 w-full flex items-center justify-center gap-6">
-          {logoImages.map((logo, index) => (
-            <div
-              key={index}
-              style={{
-                width: 'clamp(3rem, 8vw, 4rem)', // Tamaño responsivo del contenedor
-                height: 'clamp(3rem, 8vw, 4rem)', // Tamaño responsivo del contenedor
-              }}
-              className="rounded-full bg-white bg-opacity-80 flex items-center justify-center shadow-lg overflow-hidden"
-            >
-              <Image
-                src={logo}
-                width={500}
-                height={500}
-                alt={`Logo ${index + 1}`}
-                className="object-contain opacity-50"
-                style={{
-                  width: 'clamp(1rem, 6vw, 3rem)', // Tamaño responsivo de la imagen
-                  height: 'clamp(1rem, 6vw, 3rem)', // Tamaño responsivo de la imagen
-                }}
-              />
-            </div>
-          ))}
-        </div>
       </BackgroundGradientAnimation>
 
-      
       <h2 className="max-w-7xl pl-4 mx-auto text-xl md:text-5xl font-bold text-neutral-300 dark:text-neutral-200 font-sans">
         Conferencias
       </h2>
@@ -96,7 +82,255 @@ export default function MainPage() {
         ))}
       </div>
 
-      {/* Contenedor de Proyectos*/}
+      {/* Contenedor de Proyectos */}
+      <h2 className="max-w-7xl pl-4 mx-auto text-xl md:text-5xl font-bold text-neutral-300 dark:text-neutral-200 font-sans">
+        Proyectos
+      </h2>
+      <BentoGrid className="max-w-4xl mx-auto py-10">
+        {items.map((item, i) => (
+          <BentoGridItem
+            key={i}
+            title={item.title}
+            description={item.description}
+            header={item.header}
+            icon={item.icon}
+            className={i === 3 || i === 6 ? "md:col-span-2" : ""}
+          />
+        ))}
+      </BentoGrid>
+
+      {/* Contenedor de logos en la parte inferior */}
+      <div className="w-full flex items-center justify-center gap-6 py-10">
+        {logoImages.map((logo, index) => (
+          <div
+            key={index}
+            style={{
+              width: 'clamp(3rem, 8vw, 4rem)',
+              height: 'clamp(3rem, 8vw, 4rem)',
+            }}
+            className="rounded-full bg-white bg-opacity-80 flex items-center justify-center shadow-lg overflow-hidden"
+          >
+            <Image
+              src={logo}
+              width={500}
+              height={500}
+              alt={`Logo ${index + 1}`}
+              className="object-contain opacity-50"
+              style={{
+                width: 'clamp(1rem, 6vw, 3rem)',
+                height: 'clamp(1rem, 6vw, 3rem)',
+              }}
+            />
+          </div>
+        ))}
+      </div>
+
+      {/* Footer */}
+      <footer className="bg-purple-1000 text-white py-8">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-wrap justify-between">
+            <div className="w-full md:w-1/3 mb-4">
+              <h2 className="text-lg font-semibold mb-2">Sobre Nosotros</h2>
+              <p className="text-gray-400">
+                Somos una empresa comprometida con el desarrollo de soluciones innovadoras para un futuro mejor.
+              </p>
+            </div>
+            <div className="w-full md:w-1/3 mb-4">
+              <h2 className="text-lg font-semibold mb-2">Enlaces Rápidos</h2>
+              <ul className="text-gray-400">
+                <li className="mb-1">
+                  <a href="#" className="hover:underline">Inicio</a>
+                </li>
+                <li className="mb-1">
+                  <a href="#" className="hover:underline">Servicios</a>
+                </li>
+                <li className="mb-1">
+                  <a href="#" className="hover:underline">Contacto</a>
+                </li>
+              </ul>
+            </div>
+            <div className="w-full md:w-1/3 mb-4">
+              <h2 className="text-lg font-semibold mb-2">Síguenos</h2>
+              <div className="flex space-x-4 text-gray-400">
+                <a href="#" className="hover:text-gray-100">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.56v14.88c0 .91-.37 1.75-1.02 2.38-.66.65-1.54 1.02-2.48 1.02H3.5c-.94 0-1.83-.37-2.48-1.02-.65-.63-1.02-1.47-1.02-2.38V4.56c0-.91.37-1.75 1.02-2.38.66-.65 1.54-1.02 2.48-1.02h17c.94 0 1.83.37 2.48 1.02.65.63 1.02 1.47 1.02 2.38z"/></svg>
+                </a>
+                <a href="#" className="hover:text-gray-100">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.56v14.88c0 .91-.37 1.75-1.02 2.38-.66.65-1.54 1.02-2.48 1.02H3.5c-.94 0-1.83-.37-2.48-1.02-.65-.63-1.02-1.47-1.02-2.38V4.56c0-.91.37-1.75 1.02-2.38.66-.65 1.54-1.02 2.48-1.02h17c.94 0 1.83.37 2.48 1.02.65.63 1.02 1.47 1.02 2.38z"/></svg>
+                </a>
+                <a href="#" className="hover:text-gray-100">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.56v14.88c0 .91-.37 1.75-1.02 2.38-.66.65-1.54 1.02-2.48 1.02H3.5c-.94 0-1.83-.37-2.48-1.02-.65-.63-1.02-1.47-1.02-2.38V4.56c0-.91.37-1.75 1.02-2.38.66-.65 1.54-1.02 2.48-1.02h17c.94 0 1.83.37 2.48 1.02.65.63 1.02 1.47 1.02 2.38z"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div className="mt-8 border-t border-gray-700 pt-4 text-center">
+            <p className="text-gray-400">© 2023 STDC. Todos los derechos reservados.</p>
+          </div>
+        </div>
+      </footer>
     </>
   );
 }
+
+// Skeleton para encabezado en cada tarjeta
+const Skeleton = () => (
+  <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100"></div>
+);
+
+
+const items = [
+  
+  {
+    title: "YouTube Video",
+    description: "Watch an interesting video on AI applications.",
+    header: (
+      <iframe
+        className="w-full h-48 md:h-64 rounded-xl"
+        src="https://www.youtube.com/embed/48wo5KINI_g"
+        title="YouTube video player"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      ></iframe>
+    ),
+    icon: <IconBoxAlignTopLeft className="h-4 w-4 text-neutral-500" />,
+  },
+  {
+    title: "YouTube Video",
+    description: "Watch an interesting video on AI applications.",
+    header: (
+      <iframe
+        className="w-full h-48 md:h-64 rounded-xl"
+        src="https://www.youtube.com/embed/48wo5KINI_g"
+        title="YouTube video player"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      ></iframe>
+    ),
+    icon: <IconBoxAlignTopLeft className="h-4 w-4 text-neutral-500" />,
+  },
+  {
+    title: "YouTube Video",
+    description: "Watch an interesting video on AI applications.",
+    header: (
+      <iframe
+        className="w-full h-48 md:h-64 rounded-xl"
+        src="https://www.youtube.com/embed/48wo5KINI_g"
+        title="YouTube video player"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      ></iframe>
+    ),
+    icon: <IconBoxAlignTopLeft className="h-4 w-4 text-neutral-500" />,
+  },
+  {
+    title: "YouTube Video",
+    description: "Watch an interesting video on AI applications.",
+    header: (
+      <iframe
+        className="w-full h-48 md:h-64 rounded-xl"
+        src="https://www.youtube.com/embed/48wo5KINI_g"
+        title="YouTube video player"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      ></iframe>
+    ),
+    icon: <IconBoxAlignTopLeft className="h-4 w-4 text-neutral-500" />,
+  },
+  {
+    title: "YouTube Video",
+    description: "Watch an interesting video on AI applications.",
+    header: (
+      <iframe
+        className="w-full h-48 md:h-64 rounded-xl"
+        src="https://www.youtube.com/embed/48wo5KINI_g"
+        title="YouTube video player"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      ></iframe>
+    ),
+    icon: <IconBoxAlignTopLeft className="h-4 w-4 text-neutral-500" />,
+  },
+  {
+    title: "YouTube Video",
+    description: "Watch an interesting video on AI applications.",
+    header: (
+      <iframe
+        className="w-full h-48 md:h-64 rounded-xl"
+        src="https://www.youtube.com/embed/48wo5KINI_g"
+        title="YouTube video player"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      ></iframe>
+    ),
+    icon: <IconBoxAlignTopLeft className="h-4 w-4 text-neutral-500" />,
+  },
+  {
+    title: "YouTube Video",
+    description: "Watch an interesting video on AI applications.",
+    header: (
+      <iframe
+        className="w-full h-48 md:h-64 rounded-xl"
+        src="https://www.youtube.com/embed/48wo5KINI_g"
+        title="YouTube video player"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      ></iframe>
+    ),
+    icon: <IconBoxAlignTopLeft className="h-4 w-4 text-neutral-500" />,
+  },
+  {
+    title: "YouTube Video",
+    description: "Watch an interesting video on AI applications.",
+    header: (
+      <iframe
+        className="w-full h-48 md:h-64 rounded-xl"
+        src="https://www.youtube.com/embed/48wo5KINI_g"
+        title="YouTube video player"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      ></iframe>
+    ),
+    icon: <IconBoxAlignTopLeft className="h-4 w-4 text-neutral-500" />,
+  },
+  {
+    title: "YouTube Video",
+    description: "Watch an interesting video on AI applications.",
+    header: (
+      <iframe
+        className="w-full h-48 md:h-64 rounded-xl"
+        src="https://www.youtube.com/embed/48wo5KINI_g"
+        title="YouTube video player"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      ></iframe>
+    ),
+    icon: <IconArrowWaveRightUp className="h-4 w-4 text-neutral-500" />,
+  },
+  {
+    title: "YouTube Video",
+    description: "Watch an interesting video on AI applications.",
+    header: (
+      <iframe
+        className="w-full h-48 md:h-64 rounded-xl"
+        src="https://www.youtube.com/embed/48wo5KINI_g"
+        title="YouTube video player"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      ></iframe>
+    ),
+    icon: <IconBoxAlignTopLeft className="h-4 w-4 text-neutral-500" />,
+  },
+  
+  
+];
