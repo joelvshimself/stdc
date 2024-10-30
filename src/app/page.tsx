@@ -138,31 +138,39 @@ export default function MainPage() {
       </div>
       
 
-      {/* Sección de preguntas frecuentes (FAQ) */}
-      <div className="bg-gray-900 text-white py-16">
-        <h2 className="text-4xl font-bold text-center mb-10 text-neutral-300">Preguntas Frecuentes</h2>
-        <div className="max-w-4xl mx-auto space-y-4 px-4">
-          {questionsAnswers.map((item, index) => (
-            <div
-              key={index}
-              className="bg-gray-800 p-6 rounded-lg shadow-lg cursor-pointer"
-              onClick={() => toggleAccordion(index)}
-            >
-              <h3 className="text-lg font-semibold text-neutral-100 flex justify-between items-center">
-                {item.question}
-                <span className="text-gray-400">
-                  {openIndex === index ? '-' : '+'}
-                </span>
-              </h3>
-              {openIndex === index && (
-                <p className="text-gray-400 mt-4">
-                  {item.answer}
-                </p>
-              )}
-            </div>
-          ))}
-        </div>
+      <div className="bg-neutral-900 text-white py-16">
+      <h2 className="text-5xl font-extrabold text-center mb-12 text-neutral-300 tracking-tight">
+        Preguntas Frecuentes
+      </h2>
+      <div className="max-w-3xl mx-auto space-y-4 px-6">
+        {questionsAnswers.map((item, index) => (
+          <div
+            key={index}
+            onClick={() => toggleAccordion(index)}
+            className={`transition transform hover:scale-105 p-6 rounded-xl shadow-xl cursor-pointer ${
+              openIndex === index ? 'bg-neutral-800 text-neutral-200' : 'bg-neutral-900'
+            }`}
+            style={{
+              background: openIndex === index ? 'linear-gradient(to bottom right, #555, #333)' : '',
+              transition: 'background-color 0.3s ease, transform 0.3s ease',
+            }}
+          >
+            <h3 className="text-xl font-semibold flex justify-between items-center">
+              {item.question}
+              <span className={`text-neutral-500 transition-transform ${openIndex === index ? 'rotate-45' : 'rotate-0'}`}>
+                {openIndex === index ? '-' : '+'}
+              </span>
+            </h3>
+            {openIndex === index && (
+              <p className="text-neutral-400 mt-4 transition-opacity duration-300 ease-in-out">
+                {item.answer}
+              </p>
+            )}
+          </div>
+        ))}
       </div>
+    </div>
+
 
       {/* Footer */}
       <footer className="bg-purple-1000 text-white py-8">
