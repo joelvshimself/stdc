@@ -1,3 +1,4 @@
+"use client";
 import { useState } from 'react';
 import { BackgroundGradientAnimation } from '../components/ui/background-gradient-animation';
 import Image from 'next/image';
@@ -5,6 +6,12 @@ import { BentoGrid, BentoGridItem } from "../components/ui/bento-grid";
 import { IconArrowWaveRightUp, IconBoxAlignRightFilled, IconBoxAlignTopLeft, IconClipboardCopy, IconFileBroken, IconSignature, IconTableColumn } from "@tabler/icons-react";
 
 export default function MainPage() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  // Función para manejar el acordeón de preguntas y respuestas
+  const toggleAccordion = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
   // Array con las rutas de los logos
   const logoImages = [
     '/apple.svg',
@@ -47,13 +54,18 @@ export default function MainPage() {
         {/* Texto principal */}
         <div
           id="HeroTitle"
-          style={{ fontSize: 'clamp(5rem, 15vw, 15rem)', lineHeight: '1' }}
+          style={{ fontSize: 'clamp(10rem, 18vw, 27rem)', lineHeight: '1' }}
           className="absolute z-50 inset-0 flex items-center justify-center text-white font-bold pointer-events-none text-center"
         >
-          <p className="bg-clip-text text-transparent drop-shadow-2xl bg-gradient-to-b from-white/80 to-white/20">
-            STDC
-          </p>
+          <Image
+            src="/STDC20242.png"
+            alt="STDC Logo"
+            width={900}
+            height={900}
+            className=" object-contain drop-shadow-2xl"
+          />
         </div>
+        
       </BackgroundGradientAnimation>
 
       <h2 className="max-w-7xl pl-4 mx-auto text-xl md:text-5xl font-bold text-neutral-300 dark:text-neutral-200 font-sans">
@@ -123,6 +135,33 @@ export default function MainPage() {
             />
           </div>
         ))}
+      </div>
+      
+
+      {/* Sección de preguntas frecuentes (FAQ) */}
+      <div className="bg-gray-900 text-white py-16">
+        <h2 className="text-4xl font-bold text-center mb-10 text-neutral-300">Preguntas Frecuentes</h2>
+        <div className="max-w-4xl mx-auto space-y-4 px-4">
+          {questionsAnswers.map((item, index) => (
+            <div
+              key={index}
+              className="bg-gray-800 p-6 rounded-lg shadow-lg cursor-pointer"
+              onClick={() => toggleAccordion(index)}
+            >
+              <h3 className="text-lg font-semibold text-neutral-100 flex justify-between items-center">
+                {item.question}
+                <span className="text-gray-400">
+                  {openIndex === index ? '-' : '+'}
+                </span>
+              </h3>
+              {openIndex === index && (
+                <p className="text-gray-400 mt-4">
+                  {item.answer}
+                </p>
+              )}
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* Footer */}
@@ -334,3 +373,25 @@ const items = [
   
   
 ];
+
+// Datos de preguntas y respuestas
+const questionsAnswers = [
+  {
+    question: "¿Cómo puedo registrarme en la plataforma?",
+    answer: "Para registrarte, ve a la página principal y haz clic en el botón de 'Registrarse'. Llena el formulario con tus datos y sigue las instrucciones para completar el registro.",
+  },
+  {
+    question: "¿Es gratuita la plataforma?",
+    answer: "Sí, nuestra plataforma es completamente gratuita. No existen costos ocultos ni cargos adicionales.",
+  },
+  {
+    question: "¿Cómo puedo contactar al soporte?",
+    answer: "Puedes contactar al soporte a través de la sección de 'Contacto' en el menú principal o enviándonos un correo electrónico a soporte@ejemplo.com.",
+  },
+  {
+    question: "¿Qué tipo de contenido se puede compartir en la plataforma?",
+    answer: "Puedes compartir cualquier contenido que cumpla con nuestras normas de la comunidad, como artículos, videos y documentos informativos.",
+  }
+];
+
+
