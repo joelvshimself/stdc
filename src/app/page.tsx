@@ -171,7 +171,7 @@ export default function MainPage() {
         <h2 className="locationTitle">Ubicación del Evento</h2>
 
         <div className='map-container'>
-        <a href="https://maps.apple.com/?address=1%20Infinite%20Loop,%20Cupertino,%20CA">
+        <a href=" https://maps.apple.com/?ll=25.651840,-100.292246&q=Ubicaci%C3%B3n%20marcada&t=m">
             <Image
             src={"/mpmp.png"}
             width={500}
