@@ -23,3 +23,159 @@ body {
 .HeroTitle{
   font-size: 10rem !important;
 }
+
+.gradient-stroke {
+  position: relative;
+  color: red; /* Relleno blanco */
+  font-weight: bold;
+}
+
+.heroTitle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  padding: 20px;
+  gap: 3rem;
+  position: relative;
+  z-index: 1; /* Mantiene el contenido encima del borde difuso */
+}
+
+/* Pseudo-elemento para el borde difuminado */
+.heroTitle::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 5px solid transparent;
+  border-image: linear-gradient(45deg, #BC82F3, #F5B9EA, #12C2E9, #8D99FF, #AA6EEE, #FF6778, #FFBA71, #C686FF) 1;
+  padding: 20px; /* Afecta el área de padding */
+  filter: blur(5px); /* Desenfoque en el borde */
+  border-radius: 10px; /* Ajuste opcional de bordes redondeados */
+  animation: heroTitle 5s linear infinite;
+  z-index: -1; /* Coloca el borde detrás del contenido */
+}
+
+.emoji{
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+/* Animación de rotación para el borde */
+@keyframes heroTitle {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Estilos para el texto interno */
+.title {
+  font-size: clamp(2rem, 8vw, 8rem); /* Ajusta el tamaño automáticamente */
+  font-weight: 700;
+  line-height: 1;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Para pantallas medianas, como tablets */
+@media (max-width: 768px) {
+  .title {
+    font-size: clamp(3rem, 8vw, 6rem); /* Tamaño de texto en tablets */
+    padding: 15px;
+  }
+  .emoji, .location {
+    font-size: clamp(2rem, 5vw, 4rem); /* Proporcionalmente más pequeño que .title */
+    padding: 10px;
+  }
+}
+
+/* Para pantallas pequeñas, como móviles */
+@media (max-width: 480px) {
+  .title {
+    font-size: clamp(3rem, 8vw, 6rem); /* Tamaño de texto en móviles */
+    padding: 10px;
+  }
+  .emoji, .location {
+    font-size: clamp(1.5rem, 4vw, 3rem); /* Proporcionalmente más pequeño que .title */
+    padding: 8px;
+  }
+}
+
+
+
+
+.headline {
+  font-size: 4rem;
+  font-weight: 500;
+}
+
+.location {
+  font-size: 2rem;
+  font-weight: 500;
+  background: linear-gradient(to right, #12C2E9, #C471ED, #F64F59);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+@keyframes heroTitle {
+  0% {
+    border-image-source: linear-gradient(0deg, #BC82F3, #F5B9EA, #12C2E9, #8D99FF, #AA6EEE, #FF6778, #FFBA71, #C686FF);
+  }
+  100% {
+    border-image-source: linear-gradient(360deg, #BC82F3, #F5B9EA, #12C2E9, #8D99FF, #AA6EEE, #FF6778, #FFBA71, #C686FF);
+  }
+}
+
+section.agenda {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem 0;
+
+
+  h2.agendaTitle {
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: 3rem;
+  }
+
+  div.itemAgenda {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    div.title {
+      font-size: 2rem;
+      font-weight: 500;
+      max-inline-size: 50ch;
+      text-wrap: balance;
+    }
+
+    div.title span:last-child {
+      background: linear-gradient(to right, #12C2E9, #C471ED, #F64F59);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 600;
+
+    }
+
+    span.headline {
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: #918F8F;
+      margin-top: -1rem;
+      margin-bottom: 2rem;
+    }
+  }
+}
+

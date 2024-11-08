@@ -54,26 +54,30 @@ export default function MainPage() {
         {/* Texto principal */}
         <div
           id="HeroTitle"
-          style={{ fontSize: 'clamp(10rem, 18vw, 27rem)', lineHeight: '1' }}
-          className="absolute z-50 inset-0 flex items-center justify-center text-white font-bold pointer-events-none text-center"
+          className="heroTitle absolute z-50 inset-0 flex items-center justify-center text-white font-bold pointer-events-none text-center"
         >
           <Image
-            src="/STDC20242.png"
-            alt="STDC Logo"
-            width={900}
-            height={900}
-            className=" object-contain drop-shadow-2xl"
-          />
+              src={'/Logo.png'}
+              width={180}
+              height={180}
+              alt={`Logo`}
+              className="object-contain"
+            />
+          <h1 className="title">
+            SwiftTec Developers Conference 2024
+          </h1>
+
+          <div>
+            <span className="emoji">📍</span><span className="location">Nuevo Edificio EXPEDITION</span>
+          </div>
         </div>
-        
       </BackgroundGradientAnimation>
 
-      {/* Conferencias */}
+      {/* Conferencias 
       <div className="max-w-7xl mx-auto py-12">
       <h2 className="text-5xl font-bold text-neutral-300 mb-8 text-center">
           Conferencias
         </h2>
-      {/* Carrusel de tarjetas */}
       <div className="w-full py-20 overflow-x-auto flex space-x-6 px-4">
         {carouselData.map((card, index) => (
           <div
@@ -95,7 +99,65 @@ export default function MainPage() {
           </div>
         ))}
       </div>
-      </div>
+      </div> */}
+
+      {/* agenda */}
+      <section className='agenda'>
+        
+
+        <h2 className="agendaTitle">
+          Agenda
+        </h2>
+
+        <div className='itemAgenda'>
+          <div className='title'>
+            <span>Registro</span> - <span>10:30 am</span>
+          </div>
+          <span className='headline'>Participantes y Conferencistas</span>
+        </div>
+
+        <div className='itemAgenda'>
+          <div className='title'>
+            <span className='first'>Tech Santos,  Joaquin Ramirez y Paco Macedo, Emprendimiento TEC</span> - <span>11:00 am</span>
+          </div>
+          <span className='headline'>Paneles</span>
+        </div>
+
+        <div className='itemAgenda'>
+          <div className='title'>
+            <span>Networking y snacks</span> - <span>12:00 pm</span>
+          </div>
+          <span className='headline'>Con Expertos de la industria</span>
+        </div>
+
+        <div className='itemAgenda'>
+          <div className='title'>
+            <span>Apple Intelligence para desarrolladores</span> - <span>1:00 pm</span>
+          </div>
+          <span className='headline'>Apple Worldwide Developer Relations</span>
+        </div>
+
+        <div className='itemAgenda'>
+          <div className='title'>
+            <span>App Showcases</span> - <span>2:00 pm</span>
+          </div>
+          <span className='headline'>Presentación con Expertos</span>
+        </div>
+
+        <div className='itemAgenda'>
+          <div className='title'>
+            <span>Networking, Feria de apps y pizza </span> - <span>3:00 pm</span>
+          </div>
+          <span className='headline'>Prueba los Apple Vision Pro</span>
+        </div>
+
+        <div className='itemAgenda'>
+          <div className='title'>
+            <span>Despedida</span> - <span>6:00 pm</span>
+          </div>
+          <span className='headline'>Nos vemos en el siguiente evento</span>
+        </div>
+      </section>
 
       {/* Proyectos */}
       <section className="max-w-7xl mx-auto py-12">
