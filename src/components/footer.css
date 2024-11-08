@@ -1,0 +1,73 @@
+/* Variables de gradiente */
+:root {
+    --gradient-background-start: rgb(8, 0, 20);
+    --gradient-background-end: rgb(0, 10, 30);
+    --first-color: rgba(18, 113, 255, 0.5);
+    --second-color: rgba(221, 74, 255, 0.5);
+    --third-color: rgba(100, 220, 255, 0.5);
+    --fourth-color: rgba(200, 50, 50, 0.5);
+    --fifth-color: rgba(180, 180, 50, 0.5);
+    --pointer-color: rgba(150, 0, 80, 0.5);
+    --size: 80%;
+    --blending-value: overlay;
+  }
+  
+  /* Fondo animado para el footer */
+  .footer-bg {
+    position: relative;
+    background: linear-gradient(40deg, var(--gradient-background-start), var(--gradient-background-end));
+    overflow: hidden;
+  }
+  
+  .footer-gradients {
+    position: absolute;
+    inset: 0;
+    filter: blur(40px);
+  }
+  
+  .footer-gradient-layer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: var(--size);
+    height: var(--size);
+    opacity: 0.6;
+    mix-blend-mode: var(--blending-value);
+    transform: translate(-50%, -50%);
+    transform-origin: center center;
+    animation: rotate 10s infinite linear;
+  }
+  
+  .footer-gradient-layer:nth-child(1) {
+    background: radial-gradient(circle at center, var(--first-color) 0%, transparent 50%);
+  }
+  
+  .footer-gradient-layer:nth-child(2) {
+    background: radial-gradient(circle at center, var(--second-color) 0%, transparent 50%);
+    transform-origin: calc(50% - 200px) calc(50% + 200px);
+  }
+  
+  .footer-gradient-layer:nth-child(3) {
+    background: radial-gradient(circle at center, var(--third-color) 0%, transparent 50%);
+    transform-origin: calc(50% + 400px) calc(50% - 400px);
+  }
+  
+  .footer-gradient-layer:nth-child(4) {
+    background: radial-gradient(circle at center, var(--fourth-color) 0%, transparent 50%);
+    transform-origin: calc(50% - 400px) calc(50% - 200px);
+  }
+  
+  .footer-gradient-layer:nth-child(5) {
+    background: radial-gradient(circle at center, var(--fifth-color) 0%, transparent 50%);
+    transform-origin: calc(50% + 800px) calc(50% - 800px);
+  }
+  
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  

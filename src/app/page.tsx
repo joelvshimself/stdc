@@ -1,9 +1,12 @@
 "use client";
 import { useState } from 'react';
 import { BackgroundGradientAnimation } from '../components/ui/background-gradient-animation';
+
+
 import Image from 'next/image';
 import { BentoGrid, BentoGridItem } from "../components/ui/bento-grid";
 import { IconArrowWaveRightUp, IconBoxAlignRightFilled, IconBoxAlignTopLeft, IconClipboardCopy, IconFileBroken, IconSignature, IconTableColumn } from "@tabler/icons-react";
+import { Footer } from '@/components/Footer';
 
 export default function MainPage() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -233,40 +236,9 @@ export default function MainPage() {
           ))}
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="bg-neutral-800 text-white py-12">
-        <div className="container mx-auto px-6 flex flex-col md:flex-row md:justify-between space-y-6 md:space-y-0">
-          <div className="md:w-1/3">
-            <h2 className="text-lg font-semibold mb-3">Sobre Nosotros</h2>
-            <p className="text-neutral-400">
-              Somos una empresa comprometida con el desarrollo de soluciones innovadoras para un futuro mejor.
-            </p>
-          </div>
-          <div className="md:w-1/3">
-            <h2 className="text-lg font-semibold mb-3">Enlaces Rápidos</h2>
-            <ul className="text-neutral-400 space-y-1">
-              <li><a href="#" className="hover:underline">Inicio</a></li>
-              <li><a href="#" className="hover:underline">Servicios</a></li>
-              <li><a href="#" className="hover:underline">Contacto</a></li>
-            </ul>
-          </div>
-          <div className="md:w-1/3">
-            <h2 className="text-lg font-semibold mb-3">Síguenos</h2>
-            <div className="flex space-x-4 text-neutral-400">
-              <a href="#" className="hover:text-neutral-100">
-                <IconBoxAlignTopLeft className="h-6 w-6" />
-              </a>
-              <a href="#" className="hover:text-neutral-100">
-                <IconArrowWaveRightUp className="h-6 w-6" />
-              </a>
-            </div>
-          </div>
-        </div>
-        <div className="mt-8 border-t border-neutral-600 pt-4 text-center">
-          <p className="text-neutral-400">© 2023 STDC. Todos los derechos reservados.</p>
-        </div>
-      </footer>
+        
+        {/* Footer */}
+        <Footer />
     </>
   );
 }
@@ -278,160 +250,128 @@ const Skeleton = () => (
 
 
 const items = [
-  
   {
-    title: "YouTube Video",
-    description: "Watch an interesting video on AI applications.",
+    title: "Konpa",
+    description: "KONPA es una app para organizar eventos con notificaciones en tiempo real, alertas para nuevos invitados, seguimiento de asistentes y enlaces universales para compartir eventos.",
     header: (
       <iframe
         className="w-full h-48 md:h-64 rounded-xl"
-        src="https://www.youtube.com/embed/48wo5KINI_g"
+        src="https://www.youtube.com/embed/_0aC5JahO1A"
         title="YouTube video player"
         frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
       ></iframe>
     ),
-    icon: <IconBoxAlignTopLeft className="h-4 w-4 text-neutral-500" />,
+    icon: <IconBoxAlignTopLeft className="h-4 w-4 text-neutral-500" />
   },
   {
-    title: "YouTube Video",
-    description: "Watch an interesting video on AI applications.",
+    title: "Patch App",
+    description: "Patch App fomenta hábitos sustentables a través de un huerto virtual. Los usuarios completan misiones diarias para mejorar su huerto y competir con amigos en su progreso.",
     header: (
       <iframe
         className="w-full h-48 md:h-64 rounded-xl"
-        src="https://www.youtube.com/embed/48wo5KINI_g"
+        src="https://www.youtube.com/embed/ZGkT7H1OvS0"
         title="YouTube video player"
         frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
       ></iframe>
     ),
-    icon: <IconBoxAlignTopLeft className="h-4 w-4 text-neutral-500" />,
+    icon: <IconBoxAlignTopLeft className="h-4 w-4 text-neutral-500" />
   },
   {
-    title: "YouTube Video",
-    description: "Watch an interesting video on AI applications.",
+    title: "TECuido",
+    description: "TECuido es un asistente médico que brinda apoyo en emergencias, desde la detección de lesiones hasta el seguimiento de recetas. Notifica a contactos y da recomendaciones médicas.",
     header: (
       <iframe
         className="w-full h-48 md:h-64 rounded-xl"
-        src="https://www.youtube.com/embed/48wo5KINI_g"
+        src="https://www.youtube.com/embed/V1En6iZ9CLc"
         title="YouTube video player"
         frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
       ></iframe>
     ),
-    icon: <IconBoxAlignTopLeft className="h-4 w-4 text-neutral-500" />,
+    icon: <IconBoxAlignTopLeft className="h-4 w-4 text-neutral-500" />
   },
   {
-    title: "YouTube Video",
-    description: "Watch an interesting video on AI applications.",
+    title: "MedVision",
+    description: "MedVision ayuda a estudiantes de medicina a aprender procedimientos quirúrgicos paso a paso, con visualizaciones 3D y realidad aumentada para practicar en objetos físicos escaneados.",
     header: (
       <iframe
         className="w-full h-48 md:h-64 rounded-xl"
-        src="https://www.youtube.com/embed/48wo5KINI_g"
+        src="https://www.youtube.com/embed/6fGD26dGgt4"
         title="YouTube video player"
         frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
       ></iframe>
     ),
-    icon: <IconBoxAlignTopLeft className="h-4 w-4 text-neutral-500" />,
+    icon: <IconBoxAlignTopLeft className="h-4 w-4 text-neutral-500" />
   },
   {
-    title: "YouTube Video",
-    description: "Watch an interesting video on AI applications.",
+    title: "ReSicloApp",
+    description: "ReSicloApp promueve el reciclaje en México. Ofrece localización de centros de reciclaje y proporciona información sobre los procesos de reciclaje de diferentes artículos.",
     header: (
       <iframe
         className="w-full h-48 md:h-64 rounded-xl"
-        src="https://www.youtube.com/embed/48wo5KINI_g"
+        src="https://youtube.com/embed/ELtJjuP4cfM"
         title="YouTube video player"
         frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
       ></iframe>
     ),
-    icon: <IconBoxAlignTopLeft className="h-4 w-4 text-neutral-500" />,
+    icon: <IconBoxAlignTopLeft className="h-4 w-4 text-neutral-500" />
   },
   {
-    title: "YouTube Video",
-    description: "Watch an interesting video on AI applications.",
+    title: "SafeSisters",
+    description: "SafeSisters es una app de seguridad para mujeres, que integra Apple Watch y notificaciones de emergencia para alertar al círculo de confianza en situaciones de riesgo.",
     header: (
       <iframe
         className="w-full h-48 md:h-64 rounded-xl"
-        src="https://www.youtube.com/embed/48wo5KINI_g"
+        src="https://www.youtube.com/embed/0hH0zGVWe60"
         title="YouTube video player"
         frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
       ></iframe>
     ),
-    icon: <IconBoxAlignTopLeft className="h-4 w-4 text-neutral-500" />,
+    icon: <IconBoxAlignTopLeft className="h-4 w-4 text-neutral-500" />
   },
   {
-    title: "YouTube Video",
-    description: "Watch an interesting video on AI applications.",
+    title: "HealthWind",
+    description: "HealthWind ofrece información en tiempo real sobre la calidad del aire, ayudando a los usuarios a tomar decisiones para proteger su salud y concienciar sobre la contaminación.",
     header: (
       <iframe
         className="w-full h-48 md:h-64 rounded-xl"
-        src="https://www.youtube.com/embed/48wo5KINI_g"
+        src="https://www.youtube.com/embed/Yiu68wS-Tag"
         title="YouTube video player"
         frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
       ></iframe>
     ),
-    icon: <IconBoxAlignTopLeft className="h-4 w-4 text-neutral-500" />,
+    icon: <IconBoxAlignTopLeft className="h-4 w-4 text-neutral-500" />
   },
   {
-    title: "YouTube Video",
-    description: "Watch an interesting video on AI applications.",
+    title: "New Spot",
+    description: "New Spot mide el impacto ambiental de las actividades diarias, como compras y viajes. Ofrece recomendaciones personalizadas para reducir la huella de carbono.",
     header: (
       <iframe
         className="w-full h-48 md:h-64 rounded-xl"
-        src="https://www.youtube.com/embed/48wo5KINI_g"
-        title="YouTube video player"
+        src="https://drive.google.com/file/d/1dzqOqh2VgUvtEj0D93FW6qMX_ceRx8qp/preview"
+        title="Google Drive video preview"
         frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
       ></iframe>
     ),
-    icon: <IconBoxAlignTopLeft className="h-4 w-4 text-neutral-500" />,
-  },
-  {
-    title: "YouTube Video",
-    description: "Watch an interesting video on AI applications.",
-    header: (
-      <iframe
-        className="w-full h-48 md:h-64 rounded-xl"
-        src="https://www.youtube.com/embed/48wo5KINI_g"
-        title="YouTube video player"
-        frameBorder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-      ></iframe>
-    ),
-    icon: <IconArrowWaveRightUp className="h-4 w-4 text-neutral-500" />,
-  },
-  {
-    title: "YouTube Video",
-    description: "Watch an interesting video on AI applications.",
-    header: (
-      <iframe
-        className="w-full h-48 md:h-64 rounded-xl"
-        src="https://www.youtube.com/embed/48wo5KINI_g"
-        title="YouTube video player"
-        frameBorder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-      ></iframe>
-    ),
-    icon: <IconBoxAlignTopLeft className="h-4 w-4 text-neutral-500" />,
-  },
-  
-  
+    icon: <IconBoxAlignTopLeft className="h-4 w-4 text-neutral-500" />
+  }
 ];
+
 
 // Datos de preguntas y respuestas
 const questionsAnswers = [
