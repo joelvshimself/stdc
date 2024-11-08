@@ -30,6 +30,52 @@ body {
   font-weight: bold;
 }
 
+.patrocinador {
+  width: 10rem; /* Ancho de 10rem */
+  height: 5rem; /* Alto de 5rem */
+  background-color: white; /* Fondo blanco para la "carta" */
+  border-radius: 8px; /* Borde suavemente redondeado */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+  padding: 8px; /* Espacio interno */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease-in-out; /* Animación para efecto de hover */
+}
+
+.patrocinador:hover {
+  transform: translateY(-5px); /* Efecto de elevación al hacer hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Aumenta la sombra en hover */
+}
+
+.location-section {
+  padding: 4rem 0;
+  text-align: center;
+  background-color: #0a0a0a;
+}
+
+.locationTitle {
+  font-size: 3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.map-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.mapita {
+  width: 100%;
+  max-width: 800px;
+  height: 400px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  object-fit: cover;
+}
+
 .heroTitle {
   display: flex;
   flex-direction: column;

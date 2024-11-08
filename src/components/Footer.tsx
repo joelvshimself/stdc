@@ -1,4 +1,4 @@
-import { IconArrowWaveRightUp, IconBoxAlignTopLeft } from "@tabler/icons-react";
+import { IconBrandInstagram, IconBrandWhatsapp } from "@tabler/icons-react";
 import "./footer.css";
 
 export const Footer = () => {
@@ -16,34 +16,30 @@ export const Footer = () => {
         </div>
 
         <div className="container mx-auto px-6 flex flex-col md:flex-row md:justify-between space-y-6 md:space-y-0 relative z-10">
-          <div className="md:w-1/3">
-            <h2 className="text-lg font-semibold mb-3">Sobre Nosotros</h2>
+          <div className="md:w-1/2">
+            <h2 className="text-lg font-semibold mb-3">Sobre SwiftTec</h2>
             <p className="text-neutral-400">
-              Somos una empresa comprometida con el desarrollo de soluciones innovadoras para un futuro mejor.
+              SwiftTec es un grupo estudiantil dedicado al desarrollo de aplicaciones para la gran Manzana. Buscamos conectar estudiantes y profesionales apasionados por la tecnología para crear soluciones innovadoras.
             </p>
           </div>
-          <div className="md:w-1/3">
-            <h2 className="text-lg font-semibold mb-3">Enlaces Rápidos</h2>
-            <ul className="text-neutral-400 space-y-1">
-              <li><a href="#" className="hover:underline">Inicio</a></li>
-              <li><a href="#" className="hover:underline">Servicios</a></li>
-              <li><a href="#" className="hover:underline">Contacto</a></li>
-            </ul>
-          </div>
-          <div className="md:w-1/3">
+          <div className="md:w-1/2">
             <h2 className="text-lg font-semibold mb-3">Síguenos</h2>
             <div className="flex space-x-4 text-neutral-400">
-              <a href="#" className="hover:text-neutral-100">
-                <IconBoxAlignTopLeft className="h-6 w-6" />
+              <a href="https://www.instagram.com/swift.tec" className="hover:text-neutral-100">
+                <IconBrandInstagram className="h-6 w-6" />
               </a>
-              <a href="#" className="hover:text-neutral-100">
-                <IconArrowWaveRightUp className="h-6 w-6" />
+              <a href="https://chat.whatsapp.com/F32yXVAqu1jC1kmZdquIf9" className="hover:text-neutral-100">
+                <IconBrandWhatsapp className="h-6 w-6" />
               </a>
             </div>
           </div>
         </div>
+        
         <div className="mt-8 border-t border-neutral-600 pt-4 text-center relative z-10">
-          <p className="text-neutral-400">© 2023 STDC. Todos los derechos reservados.</p>
+          <p className="text-neutral-400">© 2024 SwiftTec. Todos los derechos reservados.</p>
+          <p className="text-neutral-400 mt-2">
+            Developer's Conference - Apple Intelligence | Conéctate, aprende y colabora con los mejores de la industria.
+          </p>
         </div>
       </footer>
     </>

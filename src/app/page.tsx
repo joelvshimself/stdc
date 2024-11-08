@@ -17,11 +17,7 @@ export default function MainPage() {
   };
   // Array con las rutas de los logos
   const logoImages = [
-    '/apple.svg',
-    '/apple.svg',
-    '/apple.svg',
-    '/apple.svg',
-    '/apple.svg',
+    '/ediyn.png',
   ];
 
   // Datos dummy para el carrusel
@@ -70,9 +66,17 @@ export default function MainPage() {
             SwiftTec Developers Conference 2024
           </h1>
 
-          <div>
-            <span className="emoji">📍</span><span className="location">Nuevo Edificio EXPEDITION</span>
+          <div
+            className="location-container"
+            onClick={() => window.open("https://maps.app.goo.gl/1rn7tyGVS6zzJ3Je7", "_blank")}
+            style={{ cursor: "pointer" }}
+          >
+            <span className="emoji">📍</span>
+            <span className="location">
+              Nuevo Edificio <span className="bgrad">EXPEDITION</span>
+            </span>
           </div>
+
         </div>
       </BackgroundGradientAnimation>
 
@@ -162,6 +166,26 @@ export default function MainPage() {
         </div>
       </section>
 
+      {/* ubicación */}
+      <section className="location-section">
+        <h2 className="locationTitle">Ubicación del Evento</h2>
+
+        <div className='map-container'>
+        <a href="https://maps.apple.com/?address=1%20Infinite%20Loop,%20Cupertino,%20CA">
+            <Image
+            src={"/mpmp.png"}
+            width={500}
+            height={500}
+            alt={`mapa`}
+            className='mapita'
+          />
+        </a>
+
+        </div>
+        
+
+      </section>
+
       {/* Proyectos */}
       <section className="max-w-7xl mx-auto py-12">
         <h2 className="text-5xl font-bold text-neutral-300 mb-8 text-center">
@@ -181,27 +205,24 @@ export default function MainPage() {
         </BentoGrid>
       </section>
 
-      {/* Logos */}
-      <div className="w-full flex items-center justify-center gap-8 py-12 bg-neutral-50">
-        {logoImages.map((logo, index) => (
-          <div
-            key={index}
-            className="rounded-full bg-white shadow-lg flex items-center justify-center p-4"
-            style={{
-              width: 'clamp(2.5rem, 5vw, 3.5rem)',
-              height: 'clamp(2.5rem, 5vw, 3.5rem)',
-            }}
-          >
-            <Image
-              src={logo}
-              width={500}
-              height={500}
-              alt={`Logo ${index + 1}`}
-              className="object-contain opacity-60"
-            />
-          </div>
-        ))}
-      </div>
+     {/* Logos */}
+    <div className="w-full flex items-center justify-center gap-8 py-12 bg-neutral-50">
+      {logoImages.map((logo, index) => (
+        <div
+          key={index}
+          className="patrocinador"
+        >
+          <Image
+            src={logo}
+            width={500}
+            height={500}
+            alt={`Logo ${index + 1}`}
+            className="object-contain"
+          />
+        </div>
+      ))}
+    </div>
+
 
       {/* Preguntas Frecuentes */}
       <section className="bg-neutral-900 text-white py-16">
@@ -375,22 +396,11 @@ const items = [
 
 // Datos de preguntas y respuestas
 const questionsAnswers = [
-  {
-    question: "¿Cómo puedo registrarme en la plataforma?",
-    answer: "Para registrarte, ve a la página principal y haz clic en el botón de 'Registrarse'. Llena el formulario con tus datos y sigue las instrucciones para completar el registro.",
-  },
-  {
-    question: "¿Es gratuita la plataforma?",
-    answer: "Sí, nuestra plataforma es completamente gratuita. No existen costos ocultos ni cargos adicionales.",
-  },
-  {
-    question: "¿Cómo puedo contactar al soporte?",
-    answer: "Puedes contactar al soporte a través de la sección de 'Contacto' en el menú principal o enviándonos un correo electrónico a soporte@ejemplo.com.",
-  },
-  {
-    question: "¿Qué tipo de contenido se puede compartir en la plataforma?",
-    answer: "Puedes compartir cualquier contenido que cumpla con nuestras normas de la comunidad, como artículos, videos y documentos informativos.",
-  }
+     { question: "¿Dónde será el evento?", answer: "El evento se llevará a cabo en el Tecnológico de Monterrey, Campus Monterrey, Edificio EXPEDITION" },
+      { question: "¿A qué hora empieza y termina el evento?", answer: "El evento comienza a las 10:30 am con el registro y concluye a las 6:00 pm después de la sesión de networking y el Innovation Hall." },
+      { question: "¿Puedo asistir aunque solo tenga unos minutos disponibles?", answer: "¡Claro! Aunque el evento dura todo el día, puedes venir solo un rato para aprovechar las conferencias o el networking. Recuerda que habrá momentos específicos de gran valor." },
+      { question: "¿Necesito experiencia previa en desarrollo de aplicaciones?", answer: "No, el evento está diseñado para todos los niveles, desde principiantes hasta profesionales. ¡Lo importante es tu interés en el desarrollo de aplicaciones en el ecosistema de Apple!" },
+      { question: "¿Debo llevar algo al evento?", answer: "No, solo tu Registro y ganas de aprender." }
 ];
 
 
